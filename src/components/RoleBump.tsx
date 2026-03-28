@@ -40,7 +40,7 @@ export default function RoleBump() {
         Senior medyan maaşa göre pozisyon sıralaması değişimi — 2020–2026
       </p>
       <div className="bg-bg-white rounded-xl shadow-sm p-5 pb-4">
-        <div className="h-[420px]">
+        <div className="h-[360px]">
           <ResponsiveBump
             data={bumpData}
             theme={theme}
