@@ -27,7 +27,7 @@ export default function RoleRadar() {
       <p className="text-sm text-text-secondary mb-6">
         Pozisyon bazında yıllık brüt maaş karşılaştırması — Türkiye vs ABD vs Almanya ($K)
       </p>
-      <div className="bg-bg-white rounded-xl shadow-sm p-6 pb-4">
+      <div className="bg-bg-white rounded-xl shadow-sm p-5 pb-4">
         <div className="h-[420px]">
           <ResponsiveRadar
             data={radarData}
