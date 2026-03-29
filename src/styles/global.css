@@ -32,10 +32,10 @@
   --color-accent-light: #818cf8;
 
   /* Chart data palette (max 4-5 colors per chart) */
-  --color-chart-1: #6366f1;
-  --color-chart-2: #10b981;
-  --color-chart-3: #f59e0b;
-  --color-chart-4: #ef4444;
+  --color-chart-1: #1a1a1a;
+  --color-chart-2: #d4a574;
+  --color-chart-3: #6b7280;
+  --color-chart-4: #e63946;
   --color-chart-5: #8b5cf6;
 
   /* Category colors */
