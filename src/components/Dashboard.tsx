@@ -3,7 +3,7 @@ import Hero from './Hero';
 import TrendChart from './TrendChart';
 import RoleBar from './RoleBar';
 import AIAdoption from './AIAdoption';
-import SalaryStream from './SalaryStream';
+import CompanyTypeSalary from './CompanyTypeSalary';
 import RoleBump from './RoleBump';
 import RoleRadar from './RoleRadar';
 
@@ -14,7 +14,7 @@ export default function Dashboard() {
       <TrendChart />
       <RoleBar />
       <AIAdoption />
-      <SalaryStream />
+      <CompanyTypeSalary />
       <RoleBump />
       <RoleRadar />
     </HighlightProvider>

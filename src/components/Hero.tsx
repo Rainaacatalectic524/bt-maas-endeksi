@@ -42,7 +42,7 @@ export default function Hero() {
         <p className="text-lg text-text-secondary leading-relaxed max-w-[650px] mb-12">
           5.002 yazılımcının anonim katılımıyla, 37 pozisyon ve 8 yıllık veri
           üzerinden hazırlanan Türkiye'nin en kapsamlı yazılım maaş analizi.
-          Bağımsız, açık kaynak, reklamsız.
+          <a href="https://github.com/nicatdursunlu/yazilimmaas" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Bağımsız ve açık kaynak.</a>
         </p>
       </motion.div>
 
@@ -85,7 +85,7 @@ export default function Hero() {
         >
           onceki yazilimci
         </a>
-        {' '}2026 anketi, medyan aylik net TRY
+        {' '}2026 anketi, medyan aylık net TRY
       </p>
     </section>
   );

@@ -1,5 +1,8 @@
 import { ResponsiveLine } from '@nivo/line';
 import { trend, years } from '../data/salaries';
+import FadeIn from './FadeIn';
+
+const ONCEKI_URL = 'https://github.com/nicatdursunlu/onceki-yazilimci-2026-anket-sonuclari';
 
 const data = [
   {
@@ -17,13 +20,11 @@ const data = [
     color: '#10b981',
     data: years.map((y, i) => ({ x: String(y), y: trend.junior[i] })),
   },
-];
-
-// Direct labels at end of each line (instead of legend)
-const endLabels = [
-  { id: 'Senior', y: trend.senior[8], color: '#ef4444' },
-  { id: 'Mid',    y: trend.mid[8],    color: '#6366f1' },
-  { id: 'Junior', y: trend.junior[8], color: '#10b981' },
+  {
+    id: 'Asgari Ücret',
+    color: '#9ca3af',
+    data: years.map((y, i) => ({ x: String(y), y: trend.minWage[i] })),
+  },
 ];
 
 const theme = {
@@ -54,82 +55,88 @@ const theme = {
 
 export default function TrendChart() {
   return (
-    <section className="max-w-[960px] mx-auto px-6 section" data-section="trend">
-      <h2 className="text-2xl font-bold text-text tracking-tight mb-1">
-        Nominal maaslar 8 yilda 34 kat artti
-      </h2>
-      <p className="text-sm text-text-secondary mb-10">
-        Seviyeye gore medyan aylik net maas (TRY), 2018-2026
-      </p>
-
-      <div className="bg-bg-white rounded-xl shadow-sm p-6 pb-4">
-        <div className="h-[400px] relative">
-          <ResponsiveLine
-            data={data}
-            theme={theme}
-            margin={{ top: 20, right: 90, bottom: 44, left: 60 }}
-            xScale={{ type: 'point' }}
-            yScale={{ type: 'linear', min: 0, max: 200000 }}
-            curve="monotoneX"
-            colors={(d: { color?: string }) => d.color ?? '#6366f1'}
-            lineWidth={2.5}
-            enablePoints
-            pointSize={6}
-            pointColor="#FFFFFF"
-            pointBorderWidth={2}
-            pointBorderColor={{ from: 'serieColor' }}
-            enableArea
-            areaOpacity={0.08}
-            areaBlendMode="multiply"
-            useMesh
-            enableSlices="x"
-            axisLeft={{
-              tickSize: 0,
-              tickPadding: 8,
-              tickValues: [0, 50000, 100000, 150000, 200000],
-              format: (v: number) => `₺${(v / 1000).toFixed(0)}K`,
-            }}
-            axisBottom={{
-              tickSize: 0,
-              tickPadding: 12,
-            }}
-            enableGridX={false}
-            gridYValues={[0, 50000, 100000, 150000, 200000]}
-            legends={[]}
-            layers={[
-              'grid', 'markers', 'axes', 'areas', 'crosshair', 'lines', 'points', 'slices', 'mesh', 'legends',
-              // Direct end-of-line labels layer
-              ({ series, xScale, yScale }: { series: { id: string; color: string; data: { position: { x: number; y: number } }[] }[]; xScale: (v: string) => number; yScale: (v: number) => number }) => (
-                <g key="direct-labels">
-                  {series.map(s => {
-                    const lastPoint = s.data[s.data.length - 1];
-                    if (!lastPoint) return null;
-                    return (
-                      <g key={s.id} transform={`translate(${lastPoint.position.x + 10}, ${lastPoint.position.y})`}>
-                        <text
-                          style={{
-                            fill: s.color,
-                            fontSize: 12,
-                            fontFamily: 'Inter',
-                            fontWeight: 600,
-                          }}
-                          dominantBaseline="central"
-                        >
-                          {s.id}
-                        </text>
-                      </g>
-                    );
-                  })}
-                </g>
-              ),
-            ]}
-            motionConfig="gentle"
-          />
-        </div>
-        <p className="source-text mt-2">
-          Kaynak: önceki yazılımcı anketleri 2018–2026
+    <FadeIn>
+      <section className="max-w-[960px] mx-auto px-6 section" data-section="trend">
+        <h2 className="text-2xl font-bold text-text tracking-tight mb-1">
+          Nominal maaşlar 8 yılda 34 kat arttı
+        </h2>
+        <p className="text-sm text-text-secondary mb-8 leading-relaxed max-w-[700px]">
+          2018'de junior bir yazılımcı aylık 3.000 TL alırken 2026'da bu rakam 65.500 TL'ye ulaştı.
+          Senior seviyede artış daha dikkat çekici: 7.000 TL'den 172.500 TL'ye, yaklaşık 25 katına çıktı.
+          Asgari ücretle karşılaştırıldığında yazılımcı maaşlarının ayrışması 2022 sonrası belirginleşiyor.
         </p>
-      </div>
-    </section>
+
+        <div className="bg-bg-white rounded-xl shadow-sm p-6 pb-4">
+          <div className="h-[400px] relative">
+            <ResponsiveLine
+              data={data}
+              theme={theme}
+              margin={{ top: 20, right: 100, bottom: 44, left: 60 }}
+              xScale={{ type: 'point' }}
+              yScale={{ type: 'linear', min: 0, max: 200000 }}
+              curve="monotoneX"
+              colors={(d: { color?: string }) => d.color ?? '#6366f1'}
+              lineWidth={(d: { id: string }) => d.id === 'Asgari Ücret' ? 1.5 : 2.5}
+              enablePoints
+              pointSize={6}
+              pointColor="#FFFFFF"
+              pointBorderWidth={2}
+              pointBorderColor={{ from: 'serieColor' }}
+              enableArea={false}
+              useMesh
+              enableSlices="x"
+              axisLeft={{
+                tickSize: 0,
+                tickPadding: 8,
+                tickValues: [0, 50000, 100000, 150000, 200000],
+                format: (v: number) => `₺${(v / 1000).toFixed(0)}K`,
+              }}
+              axisBottom={{
+                tickSize: 0,
+                tickPadding: 12,
+              }}
+              enableGridX={false}
+              gridYValues={[0, 50000, 100000, 150000, 200000]}
+              legends={[]}
+              layers={[
+                'grid', 'markers', 'axes', 'areas', 'crosshair', 'lines', 'points', 'slices', 'mesh', 'legends',
+                ({ series }: { series: { id: string; color: string; data: { position: { x: number; y: number } }[] }[] }) => (
+                  <g key="direct-labels">
+                    {series.map(s => {
+                      const lastPoint = s.data[s.data.length - 1];
+                      if (!lastPoint) return null;
+                      const isDashed = s.id === 'Asgari Ücret';
+                      return (
+                        <g key={s.id} transform={`translate(${lastPoint.position.x + 10}, ${lastPoint.position.y})`}>
+                          <text
+                            style={{
+                              fill: s.color,
+                              fontSize: isDashed ? 10 : 12,
+                              fontFamily: 'Inter',
+                              fontWeight: isDashed ? 400 : 600,
+                            }}
+                            dominantBaseline="central"
+                          >
+                            {s.id}
+                          </text>
+                        </g>
+                      );
+                    })}
+                  </g>
+                ),
+              ]}
+              motionConfig="gentle"
+            />
+          </div>
+          <p className="source-text mt-2">
+            Kaynak:{' '}
+            <a href={ONCEKI_URL} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
+              önceki yazılımcı
+            </a>
+            {' '}anketleri 2018-2026, asgari ücret verileri Resmi Gazete
+          </p>
+        </div>
+      </section>
+    </FadeIn>
   );
 }
