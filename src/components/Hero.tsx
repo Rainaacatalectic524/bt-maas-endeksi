@@ -41,8 +41,10 @@ export default function Hero() {
 
         <p className="text-lg text-text-secondary leading-relaxed max-w-[700px] mb-12">
           Bu rapor; önceki yazılımcı anketi (5.002 katılımcı), Levels.fyi (64.000+ beyan)
-          ve TÜİK verilerini temel alarak 37 pozisyon ve 9 yıllık maaş karşılaştırması sunmaktadır.{' '}
-          <a href="https://github.com/alpozcan/bt-maas-endeksi" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Açık kaynak.</a>
+          ve TÜİK verilerini temel alarak 37 pozisyon ve 9 yıllık maaş karşılaştırması sunmaktadır.
+          Tüm veriler ve{' '}
+          <a href="https://github.com/alpozcan/bt-maas-endeksi" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">kaynak kodu</a>
+          {' '}kamuya açıktır.
         </p>
       </motion.div>
 
