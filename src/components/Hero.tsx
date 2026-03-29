@@ -63,7 +63,7 @@ export default function Hero() {
             key={kpi.label}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 + i * 0.08 }}
+            transition={{ duration: 0.5, delay: 0.2 + i * 0.15 }}
             className="bg-bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300"
           >
             <div className="flex items-start justify-between mb-2">
