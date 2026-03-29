@@ -58,7 +58,7 @@ export default function TrendChart() {
       <h2 className="text-2xl font-bold text-text tracking-tight mb-1">
         Maaş artışı 8 yılda 34 katına ulaştı
       </h2>
-      <p className="text-sm text-text-secondary mb-6">
+      <p className="text-sm text-text-secondary mb-10">
         Aylık net TRY, seviyeye göre medyan — 2018'den 2026'ya
       </p>
 
