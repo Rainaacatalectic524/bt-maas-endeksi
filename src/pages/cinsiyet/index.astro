@@ -3,39 +3,91 @@ import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
 import IznimvarBanner from '../../components/IznimvarBanner.astro';
 import '../../styles/global.css';
+
+// Sector gender gap comparison
+const sectorGaps = [
+  { sector: 'Yazılım', gap: 3.9, source: 'oncekiyazilimci 2026', highlight: true },
+  { sector: 'Eğitim', gap: 5, source: 'TÜİK 2023' },
+  { sector: 'Finans', gap: 8, source: 'TÜİK 2023' },
+  { sector: 'Pazarlama', gap: 10, source: 'TÜİK 2023' },
+  { sector: 'Savunma', gap: 11, source: 'Glassdoor TR' },
+  { sector: 'Sağlık', gap: 12, source: 'ILO/TURKSTAT' },
+  { sector: 'Enerji', gap: 13, source: 'TÜİK 2023' },
+  { sector: 'Lojistik', gap: 14, source: 'TÜİK 2023' },
+  { sector: 'Mühendislik', gap: 15, source: 'TMMOB' },
+  { sector: 'Hukuk', gap: 18, source: 'TBB' },
+];
+const maxGap = Math.max(...sectorGaps.map(s => s.gap));
+
+// Age group breakdown (Turkey overall, Cambridge 2024)
+const ageGaps = [
+  { group: '20–24', gap: 3.8 },
+  { group: '25–29', gap: 8.2 },
+  { group: '30–34', gap: 12.5 },
+  { group: '35–39', gap: 18.7 },
+  { group: '40–44', gap: 25.9 },
+  { group: '45+', gap: 22.1 },
+];
+const maxAgeGap = Math.max(...ageGaps.map(a => a.gap));
+
+// Education level breakdown
+const eduGaps = [
+  { level: 'İlkokul ve altı', gap: 38.6 },
+  { level: 'Lise', gap: 25.2 },
+  { level: 'Üniversite+', gap: 15.8 },
+];
 ---
 
-<Layout title="Cinsiyet Maaş Farkı — yazılımmaaş" active="cinsiyet" description="Türkiye yazılım sektöründe cinsiyet maaş farkı: %3.9 — sektörler arasında en düşük.">
-  <section class="max-w-[960px] mx-auto px-6 pt-16 pb-8">
+<Layout title="Cinsiyet Maaş Farkı — yazılımmaaş" active="cinsiyet" description="Türkiye yazılım sektöründe cinsiyet maaş farkı: %3.9 — sektörler arasında en düşük. Ancak kadın katılım oranı yalnızca %17.">
+  <section class="max-w-[960px] mx-auto px-6 pt-16 pb-4">
     <h1 class="text-3xl font-bold text-text tracking-tight mb-2">Yazılımda Cinsiyet Maaş Farkı</h1>
-    <p class="text-sm text-text-secondary leading-relaxed max-w-[600px] mb-10">
-      Yazılım sektörü, Türkiye'deki tüm sektörler arasında en düşük cinsiyet maaş farkına sahip.
-      Ancak kadın katılım oranı hâlâ düşük.
+    <p class="text-base text-text-secondary leading-relaxed max-w-[700px] mb-4">
+      Yazılım sektörü %3,9 ile Türkiye'deki tüm sektörler arasında en düşük cinsiyet maaş
+      farkına sahip. Ancak bu olumlu tablo, düşük kadın katılım oranıyla birlikte
+      değerlendirilmeli: ankete katılan 5.002 yazılımcının yalnızca %17'si kadın.
     </p>
+    <p class="text-sm text-text-muted leading-relaxed max-w-[700px] mb-10">
+      Türkiye genelinde kadın işgücüne katılım oranı %36,3 ile OECD ortalamasının (%53)
+      çok altında. Yazılım sektöründeki düşük fark, kısmen seçilim etkisinden
+      kaynaklanıyor olabilir: sektörde kalmayı başaran kadınlar genellikle yüksek
+      nitelikli ve deneyimli profesyoneller.
+    </p>
+  </section>
 
+  <section class="max-w-[960px] mx-auto px-6 pb-8">
     <!-- KPI Cards -->
-    <div class="grid grid-cols-3 gap-4 mb-10">
-      <div class="bg-bg-white rounded-xl shadow-sm p-6 text-center">
-        <div class="text-4xl font-black text-accent font-mono mb-1">%3.9</div>
-        <div class="text-xs text-text-muted">Cinsiyet maaş farkı</div>
-        <div class="text-[10px] text-text-dim mt-1">Sektörler arası en düşük</div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+      <div class="bg-bg-white rounded-xl shadow-sm p-5 text-center">
+        <div class="text-3xl font-black text-accent font-mono mb-1">%3,9</div>
+        <div class="text-xs text-text-muted">Yazılım cinsiyet farkı</div>
+        <div class="text-[10px] text-text-dim mt-0.5">Sektörler arası en düşük</div>
       </div>
-      <div class="bg-bg-white rounded-xl shadow-sm p-6 text-center">
-        <div class="text-4xl font-black text-chart-2 font-mono mb-1">%17</div>
+      <div class="bg-bg-white rounded-xl shadow-sm p-5 text-center">
+        <div class="text-3xl font-black text-chart-2 font-mono mb-1">%17</div>
         <div class="text-xs text-text-muted">Kadın katılım oranı</div>
-        <div class="text-[10px] text-text-dim mt-1">5.002 katılımcı içinde</div>
+        <div class="text-[10px] text-text-dim mt-0.5">5.002 katılımcı içinde</div>
       </div>
-      <div class="bg-bg-white rounded-xl shadow-sm p-6 text-center">
-        <div class="text-4xl font-black text-chart-3 font-mono mb-1">%10.1</div>
+      <div class="bg-bg-white rounded-xl shadow-sm p-5 text-center">
+        <div class="text-3xl font-black text-chart-4 font-mono mb-1">%36,3</div>
+        <div class="text-xs text-text-muted">Kadın işgücü katılımı</div>
+        <div class="text-[10px] text-text-dim mt-0.5">Türkiye geneli (OECD ort. %53)</div>
+      </div>
+      <div class="bg-bg-white rounded-xl shadow-sm p-5 text-center">
+        <div class="text-3xl font-black text-chart-3 font-mono mb-1">%10,1</div>
         <div class="text-xs text-text-muted">Tüm sektörler ortalaması</div>
-        <div class="text-[10px] text-text-dim mt-1">Cambridge 2024 araştırması</div>
+        <div class="text-[10px] text-text-dim mt-0.5">Cambridge 2024, 14M veri</div>
       </div>
     </div>
 
-    <!-- Salary comparison by level -->
+    <!-- Level comparison -->
     <div class="bg-bg-white rounded-xl shadow-sm p-6 mb-8">
-      <h2 class="text-lg font-bold text-text mb-1">Seviye Bazında Karşılaştırma</h2>
-      <p class="text-sm text-text-secondary mb-6">Erkek vs kadın medyan aylık net TRY</p>
+      <h2 class="text-xl font-bold text-text mb-1">Seviye Bazında Karşılaştırma</h2>
+      <p class="text-sm text-text-secondary mb-2">
+        Erkek ve kadın medyan aylık net maaş (₺) — kıdem arttıkça fark da büyüyor.
+      </p>
+      <p class="text-xs text-text-muted mb-6">
+        Senior seviyede fark %4,0'a çıkıyor. Bu küçük gibi görünse de aylık ₺7.000, yıllık ₺84.000 fark demek.
+      </p>
 
       <div class="space-y-4">
         {[
@@ -46,7 +98,7 @@ import '../../styles/global.css';
           <div>
             <div class="flex items-center justify-between mb-1.5">
               <span class="text-sm font-medium text-text">{row.level}</span>
-              <span class="text-xs text-text-muted font-mono">Fark: %{row.gap}</span>
+              <span class="text-xs text-text-muted font-mono">Fark: %{row.gap} · ₺{(row.male - row.female).toLocaleString('tr-TR')}/ay</span>
             </div>
             <div class="flex gap-2">
               <div class="flex-1">
@@ -55,7 +107,7 @@ import '../../styles/global.css';
                   <span class="font-mono">₺{row.male.toLocaleString('tr-TR')}</span>
                 </div>
                 <div class="h-6 bg-bg-chart rounded overflow-hidden">
-                  <div class="h-full rounded bg-accent/60" style={`width: 100%`} />
+                  <div class="h-full rounded bg-accent/60" style="width: 100%" />
                 </div>
               </div>
               <div class="flex-1">
@@ -74,14 +126,111 @@ import '../../styles/global.css';
       <p class="source-text mt-4">Kaynak: önceki yazılımcı 2026 anketi</p>
     </div>
 
+    <!-- Sector comparison -->
+    <div class="bg-bg-white rounded-xl shadow-sm p-6 mb-8">
+      <h2 class="text-xl font-bold text-text mb-1">Sektörler Arası Karşılaştırma</h2>
+      <p class="text-sm text-text-secondary mb-2">
+        Türkiye'deki 10 sektörde cinsiyet maaş farkı — yazılım açık ara en düşük.
+      </p>
+      <p class="text-xs text-text-muted mb-6">
+        Hukuk sektöründe fark %18'e ulaşırken, yazılımda %3,9'da kalıyor.
+        Kamunun ağırlıklı olduğu eğitim sektörü de (%5) düşük farka sahip — standart maaş cetvellerinin eşitleyici etkisi.
+      </p>
+
+      <div class="space-y-2">
+        {sectorGaps.map(s => (
+          <div class={`flex items-center gap-3 py-1 ${s.highlight ? 'bg-accent/5 -mx-2 px-2 rounded-lg' : ''}`}>
+            <span class={`text-sm w-28 ${s.highlight ? 'font-semibold text-text' : 'text-text-body'}`}>{s.sector}</span>
+            <div class="flex-1 h-5 bg-bg-chart rounded overflow-hidden">
+              <div
+                class={`h-full rounded ${s.highlight ? 'bg-accent/60' : 'bg-chart-4/40'}`}
+                style={`width: ${(s.gap / maxGap) * 100}%`}
+              />
+            </div>
+            <span class={`font-mono text-xs w-10 text-right ${s.highlight ? 'text-accent font-bold' : 'text-text-muted'}`}>
+              %{s.gap}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      <p class="source-text mt-4">
+        Kaynak: TÜİK Kazanç Yapısı Araştırması 2023, oncekiyazilimci 2026, ILO/TURKSTAT, TMMOB, TBB
+      </p>
+    </div>
+
+    <!-- Age group breakdown -->
+    <div class="bg-bg-white rounded-xl shadow-sm p-6 mb-8">
+      <h2 class="text-xl font-bold text-text mb-1">Yaş Grubuna Göre Fark Nasıl Değişiyor?</h2>
+      <p class="text-sm text-text-secondary mb-2">
+        Türkiye genelinde cinsiyet maaş farkı, yaşla birlikte dramatik şekilde artıyor.
+      </p>
+      <p class="text-xs text-text-muted mb-6">
+        20–24 yaş grubunda fark yalnızca %3,8 iken 40–44 yaş grubunda %25,9'a fırlıyor.
+        Bu durum, kadınların kariyer ilerlemesinde karşılaştığı yapısal engellerin —
+        çocuk bakımı yükü, cam tavan etkisi — zamanla biriktiğini gösteriyor.
+      </p>
+
+      <div class="space-y-2">
+        {ageGaps.map(a => (
+          <div class="flex items-center gap-3">
+            <span class="text-sm text-text-body w-16 font-mono">{a.group}</span>
+            <div class="flex-1 h-5 bg-bg-chart rounded overflow-hidden">
+              <div class="h-full rounded bg-chart-3/50" style={`width: ${(a.gap / maxAgeGap) * 100}%`} />
+            </div>
+            <span class="font-mono text-xs text-text-muted w-10 text-right">%{a.gap}</span>
+          </div>
+        ))}
+      </div>
+
+      <p class="source-text mt-4">
+        Kaynak: Cambridge University Press 2024 · 14 milyon bireyin veri analizi · Türkiye geneli
+      </p>
+    </div>
+
+    <!-- Education breakdown -->
+    <div class="bg-bg-white rounded-xl shadow-sm p-6 mb-8">
+      <h2 class="text-xl font-bold text-text mb-1">Eğitim Düzeyi Farkı Azaltıyor</h2>
+      <p class="text-sm text-text-secondary mb-2">
+        Yüksek eğitim düzeyi, cinsiyet maaş farkını önemli ölçüde daraltıyor.
+      </p>
+      <p class="text-xs text-text-muted mb-6">
+        İlkokul ve altı eğitim düzeyinde fark %38,6 iken üniversite ve üstünde %15,8'e iniyor.
+        Yazılım sektörünün düşük farkı kısmen de bu etkiyi yansıtıyor: sektördeki kadınların
+        büyük çoğunluğu üniversite mezunu.
+      </p>
+
+      <div class="space-y-3">
+        {eduGaps.map(e => (
+          <div>
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-sm text-text-body">{e.level}</span>
+              <span class="font-mono text-xs text-text-muted">%{e.gap}</span>
+            </div>
+            <div class="h-6 bg-bg-chart rounded overflow-hidden">
+              <div class="h-full rounded bg-chart-3/50" style={`width: ${(e.gap / 40) * 100}%`} />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <p class="source-text mt-4">
+        Kaynak: ILO/TURKSTAT Kazanç Yapısı Araştırması · TÜİK 2023
+      </p>
+    </div>
+
     <!-- Academic sources -->
     <div class="bg-bg-white rounded-xl shadow-sm p-6 mb-8">
-      <h2 class="text-lg font-bold text-text mb-4">Akademik Kaynaklar</h2>
+      <h2 class="text-xl font-bold text-text mb-4">Akademik Kaynaklar ve Araştırmalar</h2>
       <div class="space-y-3">
         {[
-          { title: 'Gender Pay Gap in Turkey: A Comprehensive Analysis', source: 'Cambridge University Press, 2024', detail: '14 milyon bireyin 563 milyon satır veri analizi — Türkiye genel: %10.1 fark', url: 'https://doi.org/10.1017/S1474747224000088' },
-          { title: 'Labor Market Gender Gaps in Turkey', source: 'IMF Working Paper, 2024', detail: 'Kadın iş gücü katılım oranı: %35.7 (OECD ortalamasının altında)', url: 'https://www.imf.org/en/Publications/WP/Issues/2024/03/01/Labor-Market-Gender-Gaps-in-Turkey-545296' },
-          { title: 'OECD Economic Survey: Turkey 2025', source: 'OECD, 2025', detail: 'Cinsiyet eşitliğinde ilerleme kaydedildi ancak hâlâ yapısal engeller mevcut', url: 'https://www.oecd.org/en/publications/oecd-economic-surveys-turkey_10-en.html' },
+          { title: 'Gender Pay Gap in Turkey: A Comprehensive Analysis', source: 'Cambridge University Press, 2024', detail: '14 milyon bireyin 563 milyon satır veri analizi — Türkiye genel fark: %10,1', url: 'https://doi.org/10.1017/S1474747224000088' },
+          { title: 'Labor Market Gender Gaps in Turkey', source: 'IMF Working Paper, 2024', detail: 'Kadın işgücü katılım oranı %35,7 — OECD ortalamasının (%53) çok altında', url: 'https://www.imf.org/en/Publications/WP/Issues/2024/03/01/Labor-Market-Gender-Gaps-in-Turkey-545296' },
+          { title: 'OECD Economic Survey: Turkey 2025', source: 'OECD, 2025', detail: 'Cinsiyet eşitliğinde ilerleme kaydedildi ancak yapısal engeller sürüyor', url: 'https://www.oecd.org/en/publications/oecd-economic-surveys-turkey_10-en.html' },
+          { title: 'Neoclassical Analysis of Gender Wage Differentials', source: 'Springer, 2024', detail: 'Neoklasik ekonomi perspektifinden Türkiye\'deki ücret farklılıklarının yapısal analizi', url: 'https://link.springer.com/article/10.1007/s11199-024-01443-6' },
+          { title: 'Kazanç Yapısı Araştırması', source: 'TÜİK, 2023', detail: 'Türkiye genelinde sektör bazında resmi ücret ve kazanç istatistikleri', url: 'https://data.tuik.gov.tr/Bulten/Index?p=Kazanc-Yapisi-Arastirmasi-2022-49531' },
+          { title: 'Sektörel Cinsiyet Ücret Farkı Analizi', source: 'Trakya Üniversitesi, 2025', detail: 'Türkiye\'deki farklı sektörlerde cinsiyet bazlı ücret farklılıklarının karşılaştırmalı analizi', url: 'https://dergipark.org.tr/tr/pub/trakyasobed' },
+          { title: 'Female Labor Force Participation', source: 'World Bank, 2024', detail: 'Küresel kadın işgücüne katılım oranları — Türkiye: %36,3 (dünya ort. %51,1)', url: 'https://data.worldbank.org/indicator/SL.TLF.CACT.FE.ZS?locations=TR' },
         ].map(src => (
           <a href={src.url} target="_blank" rel="noopener noreferrer" class="block p-4 rounded-lg border border-border hover:border-accent/30 hover:bg-accent/3 transition group">
             <div class="text-sm font-medium text-text group-hover:text-accent transition">{src.title}</div>

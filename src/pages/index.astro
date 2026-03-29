@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Editorial from '../components/Editorial.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 import Dashboard from '../components/Dashboard';
@@ -7,5 +8,6 @@ import Dashboard from '../components/Dashboard';
 
 <Layout title="yazılımmaaş — 2026 Türkiye Yazılım Sektörü Maaş Raporu" active="rapor">
   <Dashboard client:load />
+  <Editorial />
   <Footer />
 </Layout>
